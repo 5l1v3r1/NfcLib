@@ -72,7 +72,7 @@ namespace nfc_lib_sample
                 card = nfclib.Polling(sysCode);
                 if (card != null)
                 {
-                    tbCard.Text = card.ToString() + ":"
+                    tbCard.Text = card.CardType.ToString() + ":"
                         + Utility.ByteToHex(card.Uid, 0, card.Uid.Length);
                 }
                 else

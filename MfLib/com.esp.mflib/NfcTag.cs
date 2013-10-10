@@ -10,6 +10,25 @@ using com.esp.common;
 namespace com.esp.nfclib.card
 {
     /// <summary>
+    /// カード種別
+    /// </summary>
+    public enum CardType
+    {
+        /// <summary>不明</summary>
+        Unknown,
+        /// <summary>Felica</summary>
+        Felica,
+        /// <summary>Mifare(1K)</summary>
+        Mifare1K,
+        /// <summary>Mifare(4K)</summary>
+        Mifare4K,
+        /// <summary>Mifare(UL)</summary>
+        MifareUL,
+        /// <summary>Ntag203</summary>
+        Ntag203,
+    }
+
+    /// <summary>
     /// Nfc基底
     /// </summary>
     public abstract class NfcTag
@@ -19,7 +38,10 @@ namespace com.esp.nfclib.card
 
         /// <summary>UID</summary>
         public byte[] Uid { get; protected set; }
-        
+
+        /// <summary>CardType</summary>
+        public CardType CardType { get; protected set; }
+
         /// <summary>
         /// NfcLibを指定して生成
         /// </summary>
@@ -29,6 +51,7 @@ namespace com.esp.nfclib.card
         {
             this.lib = lib;
             Uid = uid;
+            CardType = card.CardType.Unknown;
         }
 
         /// <summary>
@@ -101,6 +124,7 @@ namespace com.esp.nfclib.card
         public MifareCL(NfcLib lib, byte[] uid)
             :base(lib, uid)
         {
+            CardType = card.CardType.Mifare1K;
         }
     }
 
@@ -117,6 +141,7 @@ namespace com.esp.nfclib.card
         public MifareCL4K(NfcLib lib, byte[] uid)
             :base(lib, uid)
         {
+            CardType = card.CardType.Mifare4K;
         }
     }
 
@@ -133,6 +158,7 @@ namespace com.esp.nfclib.card
         public MifareUL(NfcLib lib, byte[] uid)
             :base(lib, uid)
         {
+            CardType = card.CardType.MifareUL;
         }
 
         /// <summary>
@@ -160,6 +186,7 @@ namespace com.esp.nfclib.card
         public NTAG203(NfcLib lib, byte[] uid)
             : base(lib, uid)
         {
+            CardType = card.CardType.Ntag203;
         }
 
         /// <summary>
@@ -187,6 +214,7 @@ namespace com.esp.nfclib.card
         public Felica(NfcLib lib, byte[] idm)
             :base(lib, idm)
         {
+            CardType = card.CardType.Felica;
         }
 
         /// <summary>
