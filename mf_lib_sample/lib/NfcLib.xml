@@ -4,497 +4,6 @@
         <name>NfcLib</name>
     </assembly>
     <members>
-        <member name="T:com.esp.nfclib.card.NfcTag">
-            <summary>
-            Nfc基底
-            </summary>
-        </member>
-        <member name="F:com.esp.nfclib.card.NfcTag.lib">
-            <summary>Mifareライブラリ</summary>
-        </member>
-        <member name="M:com.esp.nfclib.card.NfcTag.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
-            <summary>
-            NfcLibを指定して生成
-            </summary>
-            <param name="lib">NfcLib</param>
-            <param name="uid">UID</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.NfcTag.Release">
-            <summary>
-            カードの解放
-            </summary>
-        </member>
-        <member name="P:com.esp.nfclib.card.NfcTag.Uid">
-            <summary>UID</summary>
-        </member>
-        <member name="T:com.esp.nfclib.card.Mifare">
-            <summary>
-            Mifare Card
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.card.Mifare.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
-            <summary>
-            Mifareカードの生成
-            </summary>
-            <param name="lib"></param>
-            <param name="uid"></param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Mifare.Write(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            データブロックへの書き込み
-            </summary>
-            <param name="blockOrPage">ブロック又はページ番号</param>
-            <param name="buffer">データバッファ[CL:16Byte,UL:4Byte]</param>
-            <param name="offset">バッファ内の開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Mifare.Read(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            データブロックからの読み出し
-            </summary>
-            <param name="blockOrPage">ブロック又はページ番号</param>
-            <param name="buffer">データバッファ[16Byte]</param>
-            <param name="offset">バッファ内の開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Mifare.Authentication(System.Boolean,System.Byte,System.Byte[])">
-            <summary>
-            ブロックへの認証
-            </summary>
-            <param name="useA">'A'/'B'</param>
-            <param name="block">アクセス対象ブロック番号</param>
-            <param name="key">認証鍵[6Byte]</param>
-        </member>
-        <member name="T:com.esp.nfclib.card.MifareCL">
-            <summary>
-            Mifare Classic 1K
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.card.MifareCL.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
-            <summary>
-            NfcLibを指定して生成
-            </summary>
-            <param name="lib">NfcLib</param>
-            <param name="uid">UID</param>
-        </member>
-        <member name="T:com.esp.nfclib.card.MifareCL4K">
-            <summary>
-            Mifare Classic 4K
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.card.MifareCL4K.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
-            <summary>
-            NfcLibを指定して生成
-            </summary>
-            <param name="lib">NfcLib</param>
-            <param name="uid">UID</param>
-        </member>
-        <member name="T:com.esp.nfclib.card.MifareUL">
-            <summary>
-            Mifare Ultralight
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.card.MifareUL.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
-            <summary>
-            NfcLibを指定して生成
-            </summary>
-            <param name="lib">NfcLib</param>
-            <param name="uid">UID</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.MifareUL.Write(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            データブロックへの書き込み
-            </summary>
-            <param name="page">ページ番号</param>
-            <param name="buffer">データバッファ[4Byte]</param>
-            <param name="offset">バッファ内の開始位置</param>
-        </member>
-        <member name="T:com.esp.nfclib.card.Felica">
-            <summary>
-            Felica
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.card.Felica.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
-            <summary>
-            FeliCa
-            </summary>
-            <param name="lib">ライブラリ</param>
-            <param name="idm">iDm</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Felica.Write(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
-            <summary>
-            ランダムブロックへの書き込み
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内の開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Felica.Write(System.UInt16,System.Int32,System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            ランダムブロックへの書き込み
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内の開始位置</param>
-            <param name="length">長さ[16の倍数]</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Felica.Read(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
-            <summary>
-            ランダムブロックの読込み
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内の開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.card.Felica.Read(System.UInt16,System.Int32,System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            ランダムブロックの読込み
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内の開始位置</param>
-            <param name="length">長さ[16の倍数]</param>
-        </member>
-        <member name="T:com.esp.nfclib.FelicaReader">
-            <summary>
-            Felicaライブラリを利用して読み書きする
-            </summary>
-        </member>
-        <member name="T:com.esp.nfclib.IReader">
-            <summary>
-            リーダライター基底インターフェイス
-            </summary>
-        </member>
-        <member name="T:com.esp.nfclib.MfCmdCode">
-            <summary>
-            Mifareコマンドコード
-            </summary>
-        </member>
-        <member name="F:com.esp.nfclib.MfCmdCode.CMD_READ">
-            <summary>READ</summary>
-        </member>
-        <member name="F:com.esp.nfclib.MfCmdCode.CMD_WRITE">
-            <summary>1K,4K Write</summary>
-        </member>
-        <member name="F:com.esp.nfclib.MfCmdCode.CMD_UL_WRITE">
-            <summary>UL Write</summary>
-        </member>
-        <member name="F:com.esp.nfclib.MfCmdCode.CMD_AUTH_A">
-            <summary>Auth by KyeA</summary>
-        </member>
-        <member name="F:com.esp.nfclib.MfCmdCode.CMD_AUTH_B">
-            <summary>Auth by KyeB</summary>
-        </member>
-        <member name="T:com.esp.nfclib.MfConst">
-            <summary>
-            Mifare定数
-            </summary>
-        </member>
-        <member name="T:com.esp.nfclib.UseCard">
-            <summary>
-            使用するカード
-            </summary>
-        </member>
-        <member name="F:com.esp.nfclib.UseCard.None">
-            <summary>なし</summary>
-        </member>
-        <member name="F:com.esp.nfclib.UseCard.Felica">
-            <summary>Felicaのみ</summary>
-        </member>
-        <member name="F:com.esp.nfclib.UseCard.Mifare">
-            <summary>Mifareのみ</summary>
-        </member>
-        <member name="T:com.esp.nfclib.ConnetKind">
-            <summary>
-            接続モード
-            </summary>
-        </member>
-        <member name="F:com.esp.nfclib.ConnetKind.None">
-            <summary>未接続</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ConnetKind.Felica">
-            <summary>Felica API</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ConnetKind.Nfc">
-            <summary>Nfc API</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ConnetKind.Pcsc">
-            <summary>PC/SC API</summary>
-        </member>
-        <member name="T:com.esp.falplib.HandleContainer">
-            <summary>
-            GC除外変数を保持し解放する為のクラス
-            </summary>
-        </member>
-        <member name="M:com.esp.falplib.HandleContainer.AddPinnedObject(System.Object)">
-            <summary>
-            保持変数の追加
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.HandleContainer.FreeHandle">
-            <summary>
-            保持変数の解放
-            </summary>
-        </member>
-        <member name="T:com.esp.falplib.FelicaException">
-            <summary>
-            FALP 命令の実行中に発生した例外
-            FeliCa,Falp例外の種別は仕様書を参考
-            </summary>
-        </member>
-        <member name="M:com.esp.falplib.FelicaException.#ctor(System.Object)">
-            <summary>
-            生成
-            </summary>
-            <param name="error">FelicaErrorType or FalpErrorType</param>
-        </member>
-        <member name="P:com.esp.falplib.FelicaException.FelicaError">
-            <summary>FeliCaエラー</summary>
-        </member>
-        <member name="P:com.esp.falplib.FelicaException.FalpError">
-            <summary>FALPエラー</summary>
-        </member>
-        <member name="T:com.esp.common.Utility">
-            <summary>
-            Utilityクラス
-            </summary>
-        </member>
-        <member name="M:com.esp.common.Utility.#ctor">
-            <summary>
-            Utilityクラス
-            </summary>
-        </member>
-        <member name="M:com.esp.common.Utility.ByteToHex(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Byte[]からHex文字列へ
-            </summary>
-            <param name="buffer">バッファ</param>
-            <param name="offset">開始位置</param>
-            <param name="length">長さ</param>
-            <returns>00 01... FF形式の文字列</returns>
-        </member>
-        <member name="M:com.esp.common.Utility.HexToByte(System.String)">
-            <summary>
-            Hex文字列からByte[]へ
-            </summary>
-            <param name="hex">00 01...FF形式の文字列</param>
-            <returns>Byte[]</returns>
-        </member>
-        <member name="T:com.esp.nfclib.NfcReader">
-            <summary>
-            Pasori用Mifareライブラリ
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.#ctor(com.esp.nfclib.NfcLib)">
-            <summary>
-            Mifareライブラリを指定する
-            </summary>
-            <param name="lib"></param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.InitializeLibrary">
-            <summary>
-            ライブラリの初期化
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.DisposeLibrary">
-            <summary>
-            ライブラリの解放
-            (DisposeLibraryを実行した場合、次の利用では再びInitializeLibraryを実行する)
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.Polling">
-            <summary>
-            ポーリング
-            </summary>
-            <returns>カード情報,NULL=未検出</returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.StopAccess">
-            <summary>
-            カードのアクセス権を解放する
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.Authentication(System.Boolean,System.Byte,System.Byte[])">
-            <summary>
-            Mifare Authentication A/B
-            </summary>
-            <param name="useA">'A'/'B'</param>
-            <param name="block">アクセス対象ブロック番号</param>
-            <param name="key">認証鍵[6Byte]</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.TryAuthentication(System.Boolean,System.Byte[],System.Byte)">
-            <summary>
-            Mifare Authentication A/B
-            </summary>
-            <param name="useA">'A'/'B'</param>
-            <param name="key">認証鍵[6Byte]</param>
-            <param name="block">アクセス対象ブロック番号</param>
-            <returns>T:成功,F:失敗</returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.ReadBlockData(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            指定ブロックの読み込み
-            Classic:16Byte,UL:4Byte
-            </summary>
-            <param name="blockOrPage">ブロック番号、ページ番号</param>
-            <param name="buffer">バッファ</param>
-            <param name="offset">バッファ内の保存開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.WriteBlockData(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            指定ブロック(16Byte)の書き込み
-            </summary>
-            <param name="block">ブロック番号</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内のデータ開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.WritePageData(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            指定ページ(4Byte)の書き込み
-            </summary>
-            <param name="page">ページ番号</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内のデータ開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.NfcCommand(System.Byte[],System.UInt16,System.UInt16@)">
-            <summary>
-            NFCコマンドの送受信
-            </summary>
-            <param name="data">コマンドパケット</param>
-            <param name="length">データ長</param>
-            <param name="outLen">受信データ長</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.ErrorRoutine">
-            <summary>
-            ライブラリを強制解放する
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.GetMfException">
-            <summary>
-            Pasoriで検出された例外を取得する
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcReader.CreateCard">
-            <summary>
-            Mifareオブジェクトの生成
-            </summary>
-        </member>
-        <member name="P:com.esp.nfclib.NfcReader.PollingTimeout">
-            <summary>ポーリング時間[ms]</summary>
-        </member>
-        <member name="T:com.esp.nfclib.NfcLib">
-            <summary>
-            Pasori用Nfcライブラリ
-            </summary>
-        </member>
-        <member name="F:com.esp.nfclib.NfcLib.MF_BLOCK_LENGTH">
-            <summary>MifareClassicは読み込み、書き込み16Byte単位</summary>
-        </member>
-        <member name="F:com.esp.nfclib.NfcLib.MF_UL_PAGE_LENGTH">
-            <summary>Ultralightは書き込み4Byte単位、読み込みは16Byte単位</summary>
-        </member>
-        <member name="F:com.esp.nfclib.NfcLib.MF_UL_PAGE_MAX">
-            <summary>Ultralightは0～15ページ。LockByte=2,OTP=3,ユーザー領域は4～15</summary>
-        </member>
-        <member name="F:com.esp.nfclib.NfcLib.FC_BLOCK_LENGTH">
-            <summary>Felicaは読み込み、書き込み16Byte単位</summary>
-        </member>
-        <member name="F:com.esp.nfclib.NfcLib.FC_IDM_LENGTH">
-            <summary>FelicaはIDMは8Byte</summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.InitializeLibrary(com.esp.nfclib.UseCard)">
-            <summary>
-            ライブラリの初期化
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.DisposeLibrary">
-            <summary>
-            ライブラリの解放
-            (DisposeLibraryを実行した場合、次の利用では再びInitializeLibraryを実行する)
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.Polling(System.UInt16)">
-            <summary>
-            ポーリング
-            </summary>
-            <returns>カード情報,NULL=未検出</returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.Polling">
-            <summary>
-            ポーリング(Mifare)
-            </summary>
-            <returns>カード情報,NULL=未検出</returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.StopAccess">
-            <summary>
-            カードのアクセス権を解放する
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.Authentication(System.Boolean,System.Byte,System.Byte[])">
-            <summary>
-            Mifare Authentication A/B
-            </summary>
-            <param name="useA">'A'/'B'</param>
-            <param name="block">アクセス対象ブロック番号</param>
-            <param name="key">認証鍵[6Byte]</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.TryAuthentication(System.Boolean,System.Byte[],System.Byte)">
-            <summary>
-            Mifare Authentication A/B
-            </summary>
-            <param name="useA">'A'/'B'</param>
-            <param name="key">認証鍵[6Byte]</param>
-            <param name="block">アクセス対象ブロック番号</param>
-            <returns>T:成功,F:失敗</returns>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.ReadBlockData(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            Mifare指定ブロックの読み込み
-            Classic:16Byte,UL:4Byte
-            </summary>
-            <param name="blockOrPage">ブロック番号、ページ番号</param>
-            <param name="buffer">バッファ</param>
-            <param name="offset">バッファ内の保存開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.WriteBlockData(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            Mifare指定ブロック(16Byte)の書き込み
-            </summary>
-            <param name="block">ブロック番号</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内のデータ開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.WritePageData(System.Byte,System.Byte[],System.Int32)">
-            <summary>
-            Mifare UL 指定ページ(4Byte)の書き込み
-            </summary>
-            <param name="page">ページ番号</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内のデータ開始位置</param>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.ReadBlockData(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
-            <summary>
-            FeliCa指定ブロックの読み込み
-            Classic:16Byte,UL:4Byte
-            </summary>
-        </member>
-        <member name="M:com.esp.nfclib.NfcLib.WriteBlockData(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
-            <summary>
-            FeliCa指定ブロックの書き込み
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">データバッファ</param>
-            <param name="offset">バッファ内のデータ開始位置</param>
-        </member>
-        <member name="P:com.esp.nfclib.NfcLib.Connection">
-            <summary>接続モード</summary>
-        </member>
         <member name="T:com.esp.nfclib.WinSCard">
             <summary>
             winscard.dllラッパー
@@ -541,12 +50,11 @@
             <param name="disposition">0を指定</param>
             <returns></returns>
         </member>
-        <member name="M:com.esp.nfclib.WinSCard.GetStatus(System.IntPtr,System.String@,System.UInt32@,System.UInt32@,System.Byte[]@)">
+        <member name="M:com.esp.nfclib.WinSCard.GetStatus(System.IntPtr,System.UInt32@,System.UInt32@,System.Byte[]@)">
             <summary>
             ATR取得用
             </summary>
             <param name="card">カードコンテキスト</param>
-            <param name="reader">[OUT]リーダー名</param>
             <param name="state">[OUT]リーダー状態</param>
             <param name="protocol">[OUT]プロトコル</param>
             <param name="atr">[OUT]</param>
@@ -589,6 +97,381 @@
             メソッド成功かつ、カードによる拒否等のエラー取得
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:com.esp.nfclib.IReader">
+            <summary>
+            リーダライター基底インターフェイス
+            </summary>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.InitializeLibrary">
+            <summary>
+            ライブラリの初期化
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.OpenReaderWriterAuto">
+            <summary>
+            リーダーライターを開く
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.CloseReaderWriter">
+            <summary>
+            リーダー・ライターの解放
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.DisposeLibrary">
+            <summary>
+            ライブラリの解放
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.TransactionLock">
+            <summary>
+            R/Wを専有する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.TransactionUnlock">
+            <summary>
+            R/Wを専有する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.PollingAndGetCardInformation(StructurePolling@,System.Byte@,StructureCardInformation@)">
+            <summary>
+            Pollingを実行する
+            </summary>
+            <param name="polling"></param>
+            <param name="numOfCard"></param>
+            <param name="cardInformation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.WriteBlockWithoutEncryption(InputStructureWriteBlockWithoutEncryption@,OutputStructureWriteBlockWithoutEncryption@)">
+            <summary>
+            鍵無し領域への書込み
+            </summary>
+            <param name="udtInputWriteBlockWithoutEncryption"></param>
+            <param name="udtOutputWriteBlockWithoutEncryption"></param>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.ReadBlockWithoutEncryption(InputStructureReadBlockWithoutEncryption@,OutputStructureReadBlockWithoutEncryption@)">
+            <summary>
+            鍵無し領域からの読込み
+            </summary>
+            <param name="udtInputReadBlockWithoutEncryption"></param>
+            <param name="udtOutputReadBlockWithoutEncryption"></param>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.FalpOpen">
+            <summary>
+            FALP Initiatorを開始する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.FalpClose">
+            <summary>
+            FALP Initiatorを終了する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.FalpConnect(System.UInt16,System.UInt16,System.Byte[],System.Byte,System.Byte[],System.UInt32@)">
+            <summary>
+            Targetに接続する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.FalpShutdown">
+            <summary>
+            Targetから切断する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.FalpSend(System.Byte[],System.UInt32@)">
+            <summary>
+            データを送信する
+            </summary>
+            <param name="data">データ</param>
+            <param name="buffered">データ長、成功時はバッファされたデータ長が格納される</param>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.felica_dll.FalpRecv(System.Byte[],System.UInt32@)">
+            <summary>
+            データを送信する
+            </summary>
+            <param name="data">データ</param>
+            <param name="buffered">データ長、成功時はバッファされたデータ長が格納される</param>
+            <returns></returns>
+        </member>
+        <member name="F:InputStructureWriteBlockWithoutEncryption.CardIdm">
+            <summary>
+            Byte型へのポインタ(8byte) Idm
+            </summary>
+        </member>
+        <member name="F:InputStructureWriteBlockWithoutEncryption.NumberOfServices">
+            <summary>
+            サービス数 m(1～m～16)
+            </summary>
+        </member>
+        <member name="F:InputStructureWriteBlockWithoutEncryption.ServiceCodeList">
+            <summary>
+            Byte型へのポインタ(m*2byte、m*4byte)　サービスコードリスト 
+            </summary>
+        </member>
+        <member name="F:InputStructureWriteBlockWithoutEncryption.NumberOfBlocks">
+            <summary>
+            ブロック数 n(1～n～255)
+            </summary>
+        </member>
+        <member name="F:InputStructureWriteBlockWithoutEncryption.BlockList">
+            <summary>
+            Byte型へのポインタ(n*2byte～n*3byte)　ブロック位置リスト
+            </summary>
+        </member>
+        <member name="F:InputStructureWriteBlockWithoutEncryption.BlockData">
+            <summary>
+            Byte型へのポインタ(n*16byte) ブロックデータ領域リスト
+            </summary>
+        </member>
+        <member name="F:OutputStructureWriteBlockWithoutEncryption.StatusFlag1">
+            <summary>
+            byte型へのポインタ 0=OK,それ以外=NG;
+            </summary>
+        </member>
+        <member name="F:OutputStructureWriteBlockWithoutEncryption.StatusFlag2">
+            <summary>
+            byte型へのポインタ 0=OK,それ以外=NG;
+            </summary>
+        </member>
+        <member name="F:InputStructureReadBlockWithoutEncryption.CardIdm">
+            <summary>
+            byte型へのポインタ(8byte) Idm
+            </summary>
+        </member>
+        <member name="F:InputStructureReadBlockWithoutEncryption.NumberOfServices">
+            <summary>
+            サービス数 m(1～m～16)
+            </summary>
+        </member>
+        <member name="F:InputStructureReadBlockWithoutEncryption.ServiceCodeList">
+            <summary>
+            Byte型へのポインタ(m*2byte、m*4byte)　サービスコードリスト 
+            </summary>
+        </member>
+        <member name="F:InputStructureReadBlockWithoutEncryption.NumberOfBlocks">
+            <summary>
+            ブロック数n n(1～n～255)
+            </summary>
+        </member>
+        <member name="F:InputStructureReadBlockWithoutEncryption.BlockList">
+            <summary>
+            Byte型へのポインタ(n*2byte～n*3byte)　ブロック位置リスト
+            </summary>
+        </member>
+        <member name="F:OutputStructureReadBlockWithoutEncryption.StatusFlag1">
+            <summary>
+            Byte型(1byte)へのポインタ 0=OK,それ以外=NG;
+            </summary>
+        </member>
+        <member name="F:OutputStructureReadBlockWithoutEncryption.StatusFlag2">
+            <summary>
+            Byte型(1byte)へのポインタ 0=OK,それ以外=NG;
+            </summary>
+        </member>
+        <member name="F:OutputStructureReadBlockWithoutEncryption.ResultNumberOfBlocks">
+            <summary>
+            Byte型(1byte)へのポインタ ブロック数n
+            </summary>
+        </member>
+        <member name="F:OutputStructureReadBlockWithoutEncryption.BlockData">
+            <summary>
+            Byte型(n*16byte) 読み取ったブロックデータ
+            </summary>
+        </member>
+        <member name="T:com.esp.falplib.FelicaNetHelper">
+            <summary>
+            FALPライブラリ C#ラッパー
+            </summary>
+        </member>
+        <member name="F:com.esp.falplib.FelicaNetHelper.BLOCK_LENGTH">
+            <summary>ブロックのバイト数</summary>
+        </member>
+        <member name="F:com.esp.falplib.FelicaNetHelper.IDM_LENGTH">
+            <summary>IDMのバイト数</summary>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.#ctor">
+            <summary>
+            完全Staticクラス
+            </summary>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.InitializeLibrary">
+            <summary>
+            ライブラリの初期化
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.OpenReaderWriterAuto">
+            <summary>
+            リーダーライターを開く
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.CloseReaderWriter">
+            <summary>
+            リーダー・ライターの解放
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.DisposeLibrary">
+            <summary>
+            ライブラリの解放
+            </summary>
+            <returns>T:正常終了 F:異常終了</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.TransactionLock">
+            <summary>
+            R/Wを専有する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.TransactionUnlock">
+            <summary>
+            R/Wを専有する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.FalpOpen">
+            <summary>
+            FALP Initiatorを開始する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.FalpClose">
+            <summary>
+            FALP Initiatorを終了する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.ConnectFalp(System.Byte[],System.UInt16,System.UInt16,System.Byte[])">
+            <summary>
+            Targetに接続する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.FalpShutdown">
+            <summary>
+            Targetから切断する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.SendByFalp(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データを送信する
+            </summary>
+            <param name="data">データ</param>
+            <param name="offset">バッファ内の位置</param>
+            <param name="length">データの長さ</param>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.RecvByFalp(System.Byte[],System.Int32,System.UInt16)">
+            <summary>
+            FALPによるデータの受信
+            </summary>
+            <param name="buffer">受信データ格納先</param>
+            <param name="offset">位置</param>
+            <param name="timeout">タイムアウト時間[ms]</param>
+            <returns>受信したデータの長さ</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.Polling(System.UInt16,System.Byte[])">
+            <summary>
+            Pollingの実行
+            </summary>
+            <param name="sysCode">システムコード</param>
+            <param name="idm">Idm</param>
+            <returns>T:捕捉, F:捕捉なし</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.ReadBlockData(System.UInt16,System.Byte[],System.Int32[],System.Byte[],System.Int32)">
+            <summary>
+            鍵無し領域からの読み出し
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="idm">Idm</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">取得データバッファ</param>
+            <param name="offset">保存開始位置</param>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.WriteBlockData(System.UInt16,System.Byte[],System.Int32[],System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            鍵無し領域への書込み
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="idm">Idm</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">書込みデータバッファ</param>
+            <param name="offset">バッファ内のデータ開始位置</param>
+            <param name="length">データの長さ</param>
+        </member>
+        <member name="M:com.esp.falplib.FelicaNetHelper.RaiseException(System.Type)">
+            <summary>
+            FelicaExceptionをthrowする
+            </summary>
+            <param name="type">FelicaErorrTyper</param>
+        </member>
+        <member name="T:DEVICE_DATA_NFC_14443A_18092_106K">
+            <summary>
+            ISO 14443A情報
+            </summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.target_number">
+            <summary>アクセス識別子</summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.sens_res">
+            <summary>ATQA</summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.sel_res">
+            <summary>SAK</summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.NFCID1_size">
+            <summary>UIDサイズ</summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.NFCID1">
+            <summary>UID</summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.ATS_size">
+            <summary>ATSサイズ 1443A-4以外はで0固定 ATAは1バイト</summary>
+        </member>
+        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.ATS">
+            <summary>ATS</summary>
+        </member>
+        <member name="T:DEVICE_INFO">
+            <summary>
+            ウインドウメッセージで受け取るカード情報
+            </summary>
+        </member>
+        <member name="T:com.esp.nfclib.trailer.LockByte">
+            <summary>
+            Mifare Ultralight LockByte
+            LockByteにより、ページ単位の書き換え禁止設定を行います。
+            書き換え禁止ページの追加はできますが、禁止設定のページを修正可能には戻せません。
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.trailer.LockByte.#ctor">
+            <summary>
+            全ページ書き換え可能状態
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.trailer.LockByte.GetPageData">
+            <summary>
+            LockByteに対応する4Byteを取得
+            </summary>
+            <returns>Byte[4]</returns>
+        </member>
+        <member name="P:com.esp.nfclib.trailer.LockByte.Page">
+            <summary>ページ4～15の書き換え禁止設定
+            true=禁止,false=許可</summary>
+        </member>
+        <member name="P:com.esp.nfclib.trailer.LockByte.Otp">
+            <summary>OTP部(ページ3)の書き換え禁止</summary>
         </member>
         <member name="T:com.esp.falplib.FelicaErrorType">
             <summary>
@@ -1253,6 +1136,286 @@
         <member name="F:com.esp.falplib.RwErrorType.RW_READER_WRITER_VERSION_UNSUPPORTED">
             <summary>RW_READER_WRITER_VERSION_UNSUPPORTED</summary>
         </member>
+        <member name="T:com.esp.nfclib.FelicaReader">
+            <summary>
+            Felicaライブラリを利用して読み書きする
+            </summary>
+        </member>
+        <member name="T:com.esp.nfclib.card.NfcTag">
+            <summary>
+            Nfc基底
+            </summary>
+        </member>
+        <member name="F:com.esp.nfclib.card.NfcTag.lib">
+            <summary>Mifareライブラリ</summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.NfcTag.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            NfcLibを指定して生成
+            </summary>
+            <param name="lib">NfcLib</param>
+            <param name="uid">UID</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.NfcTag.Release">
+            <summary>
+            カードの解放
+            </summary>
+        </member>
+        <member name="P:com.esp.nfclib.card.NfcTag.Uid">
+            <summary>UID</summary>
+        </member>
+        <member name="T:com.esp.nfclib.card.Mifare">
+            <summary>
+            Mifare Card
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.Mifare.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            Mifareカードの生成
+            </summary>
+            <param name="lib"></param>
+            <param name="uid"></param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Mifare.Write(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            データブロックへの書き込み
+            </summary>
+            <param name="blockOrPage">ブロック又はページ番号</param>
+            <param name="buffer">データバッファ[CL:16Byte,UL:4Byte]</param>
+            <param name="offset">バッファ内の開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Mifare.Read(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            データブロックからの読み出し
+            </summary>
+            <param name="blockOrPage">ブロック又はページ番号</param>
+            <param name="buffer">データバッファ[16Byte]</param>
+            <param name="offset">バッファ内の開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Mifare.Authentication(System.Boolean,System.Byte,System.Byte[])">
+            <summary>
+            ブロックへの認証
+            </summary>
+            <param name="useA">'A'/'B'</param>
+            <param name="block">アクセス対象ブロック番号</param>
+            <param name="key">認証鍵[6Byte]</param>
+        </member>
+        <member name="T:com.esp.nfclib.card.MifareCL">
+            <summary>
+            Mifare Classic 1K
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.MifareCL.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            NfcLibを指定して生成
+            </summary>
+            <param name="lib">NfcLib</param>
+            <param name="uid">UID</param>
+        </member>
+        <member name="T:com.esp.nfclib.card.MifareCL4K">
+            <summary>
+            Mifare Classic 4K
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.MifareCL4K.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            NfcLibを指定して生成
+            </summary>
+            <param name="lib">NfcLib</param>
+            <param name="uid">UID</param>
+        </member>
+        <member name="T:com.esp.nfclib.card.MifareUL">
+            <summary>
+            Mifare Ultralight
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.MifareUL.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            NfcLibを指定して生成
+            </summary>
+            <param name="lib">NfcLib</param>
+            <param name="uid">UID</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.MifareUL.Write(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            データブロックへの書き込み
+            </summary>
+            <param name="page">ページ番号</param>
+            <param name="buffer">データバッファ[4Byte]</param>
+            <param name="offset">バッファ内の開始位置</param>
+        </member>
+        <member name="T:com.esp.nfclib.card.NTAG203">
+            <summary>
+            NTAG203
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.NTAG203.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            NfcLibを指定して生成
+            </summary>
+            <param name="lib">NfcLib</param>
+            <param name="uid">UID</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.NTAG203.Write(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            データブロックへの書き込み
+            </summary>
+            <param name="page">ページ番号</param>
+            <param name="buffer">データバッファ[4Byte]</param>
+            <param name="offset">バッファ内の開始位置</param>
+        </member>
+        <member name="T:com.esp.nfclib.card.Felica">
+            <summary>
+            Felica
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.card.Felica.#ctor(com.esp.nfclib.NfcLib,System.Byte[])">
+            <summary>
+            FeliCa
+            </summary>
+            <param name="lib">ライブラリ</param>
+            <param name="idm">iDm</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Felica.Write(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
+            <summary>
+            ランダムブロックへの書き込み
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内の開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Felica.Write(System.UInt16,System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            ランダムブロックへの書き込み
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内の開始位置</param>
+            <param name="length">長さ[16の倍数]</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Felica.Read(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
+            <summary>
+            ランダムブロックの読込み
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内の開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.card.Felica.Read(System.UInt16,System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            ランダムブロックの読込み
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内の開始位置</param>
+            <param name="length">長さ[16の倍数]</param>
+        </member>
+        <member name="T:com.esp.nfclib.NfcReader">
+            <summary>
+            Pasori用Mifareライブラリ
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.#ctor(com.esp.nfclib.NfcLib)">
+            <summary>
+            Mifareライブラリを指定する
+            </summary>
+            <param name="lib"></param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.InitializeLibrary">
+            <summary>
+            ライブラリの初期化
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.DisposeLibrary">
+            <summary>
+            ライブラリの解放
+            (DisposeLibraryを実行した場合、次の利用では再びInitializeLibraryを実行する)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.Polling">
+            <summary>
+            ポーリング
+            </summary>
+            <returns>カード情報,NULL=未検出</returns>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.StopAccess">
+            <summary>
+            カードのアクセス権を解放する
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.Authentication(System.Boolean,System.Byte,System.Byte[])">
+            <summary>
+            Mifare Authentication A/B
+            </summary>
+            <param name="useA">'A'/'B'</param>
+            <param name="block">アクセス対象ブロック番号</param>
+            <param name="key">認証鍵[6Byte]</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.TryAuthentication(System.Boolean,System.Byte[],System.Byte)">
+            <summary>
+            Mifare Authentication A/B
+            </summary>
+            <param name="useA">'A'/'B'</param>
+            <param name="key">認証鍵[6Byte]</param>
+            <param name="block">アクセス対象ブロック番号</param>
+            <returns>T:成功,F:失敗</returns>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.ReadBlockData(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            指定ブロックの読み込み
+            Classic:16Byte,UL:4Byte
+            </summary>
+            <param name="blockOrPage">ブロック番号、ページ番号</param>
+            <param name="buffer">バッファ</param>
+            <param name="offset">バッファ内の保存開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.WriteBlockData(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            指定ブロック(16Byte)の書き込み
+            </summary>
+            <param name="block">ブロック番号</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内のデータ開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.WritePageData(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            指定ページ(4Byte)の書き込み
+            </summary>
+            <param name="page">ページ番号</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内のデータ開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.NfcCommand(System.Byte[],System.UInt16,System.UInt16@)">
+            <summary>
+            NFCコマンドの送受信
+            </summary>
+            <param name="data">コマンドパケット</param>
+            <param name="length">データ長</param>
+            <param name="outLen">受信データ長</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.ErrorRoutine">
+            <summary>
+            ライブラリを強制解放する
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.GetMfException">
+            <summary>
+            Pasoriで検出された例外を取得する
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcReader.CreateCard">
+            <summary>
+            Mifareオブジェクトの生成
+            </summary>
+        </member>
+        <member name="P:com.esp.nfclib.NfcReader.PollingTimeout">
+            <summary>ポーリング時間[ms]</summary>
+        </member>
         <member name="T:com.esp.nfclib.trailer.Grant">
             <summary>
             権限 (KeyA,KeyBの両方に許可する場合はORして利用可能
@@ -1369,208 +1532,40 @@
         <member name="P:com.esp.nfclib.trailer.SectorTrailer.ST">
             <summary>SectorTrailer部</summary>
         </member>
-        <member name="T:com.esp.nfclib.NfcLibException">
+        <member name="T:com.esp.falplib.HandleContainer">
             <summary>
-            Pasoriエラー
+            GC除外変数を保持し解放する為のクラス
             </summary>
         </member>
-        <member name="M:com.esp.nfclib.NfcLibException.#ctor(com.esp.nfclib.ApiErrorKind,System.UInt32)">
+        <member name="M:com.esp.falplib.HandleContainer.AddPinnedObject(System.Object)">
             <summary>
-            Pasoriエラー
+            保持変数の追加
             </summary>
-            <param name="apiError">APIエラーコード</param>
-            <param name="driverError">ドライバエラーコード</param>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
-        <member name="P:com.esp.nfclib.NfcLibException.ApiError">
-            <summary>Pasori APIエラーコード</summary>
-        </member>
-        <member name="P:com.esp.nfclib.NfcLibException.DriverError">
-            <summary>Pasori ドライバエラーコード</summary>
-        </member>
-        <member name="P:com.esp.nfclib.NfcLibException.Message">
+        <member name="M:com.esp.falplib.HandleContainer.FreeHandle">
             <summary>
-            エラー内容
+            保持変数の解放
             </summary>
         </member>
-        <member name="T:com.esp.nfclib.ApiErrorKind">
+        <member name="T:com.esp.falplib.FelicaException">
             <summary>
-            Pasoriエラー定義
+            FALP 命令の実行中に発生した例外
+            FeliCa,Falp例外の種別は仕様書を参考
             </summary>
         </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.APP_UNKNOWN">
-            <summary>未定義</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.APP_INITIALIZE_FALED">
-            <summary>Initializeに失敗</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.APP_MF_AUTH_FALED">
-            <summary>Autenticationに失敗</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.APP_MF_NOT_DETECTED">
-            <summary>カード未検出</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.APP_MF_NOT_RELEASE">
-            <summary>カード未解放</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.APP_INVALID_ACCESS_CONDITION">
-            <summary>セクタトレーラーが不正</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_DRIVER_ERROR">
-            <summary>ドライバでエラーが発生しました※1</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INVALID_ARGUMENT">
-            <summary>プラグインへの引数が異常です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INITIALIZE_DRIVER">
-            <summary>ドライバの初期化に失敗しました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_MEMORY_ALLOCATE">
-            <summary>メモリが確保できません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INVALID_PORT_NAME">
-            <summary>ポート名が不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_NOT_PORT_OPENED">
-            <summary>ポートがオープンされていません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_OPENED">
-            <summary>すでにポートがオープンされています</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INVALID_RESPONSE">
-            <summary>ドライバからのレスポンスデータが不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_ARGUMENT">
-            <summary>引数が異常です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_IMPLEMENT">
-            <summary>実装されていません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_MODE">
-            <summary>FeliCaライブラリが動作中です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_MEMORY_ALLOCATE">
-            <summary>メモリが確保できません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_INITIALIZE">
-            <summary>ライブラリが初期化されていません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PORT_LIST">
-            <summary>ポートリスト名が不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PORT_NAME">
-            <summary>ポート名が不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PLUGINS_DIR">
-            <summary>プラグインディレクトリが不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PLUGIN_NAME">
-            <summary>プラグインファイル名が不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PLUGIN">
-            <summary>プラグインファイルが不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NO_PLUGIN">
-            <summary>プラグインファイルが存在しません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_CREATE_THREAD">
-            <summary>スレッドが生成できません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_PORT_OPENED">
-            <summary>ポートがオープンされていません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NO_CALLBACK_PARAM">
-            <summary>コールバックパラメータが設定されていません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_CREATE_MESSAGE">
-            <summary>コールバック用メッセージが生成できません</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TIME_OUT">
-            <summary>NFCアクセスライブラリでタイムアウトが発生しました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_CALLBACK">
-            <summary>コールバック呼び出しに失敗しました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_ALREADY_INITIALIZED">
-            <summary>ライブラリはすでに初期化されています</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_PORT_OPENED">
-            <summary>すでにポートがオープンされています</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_DRIVER_STATUS">
-            <summary>ドライバステータスが不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_TARGET_DEVICE_TYPE">
-            <summary>捕捉したターゲットデバイスタイプが不明です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_FORBIDDEN_OPERARION">
-            <summary>同期非同期排他エラーが発生しました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE_NOT_FOUND">
-            <summary>捕捉デバイスが見つかりませんでした</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE_TIMEOUT">
-            <summary>捕捉デバイス使用開始要求が時間内にありませんでした</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE_ACCESS">
-            <summary>ターゲットデバイスアクセスでのエラーがドライバより通知されました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE">
-            <summary>ターゲットデバイスアクセスでの不明エラーがドライバより通知されました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_MODE">
-            <summary>モード移行エラーがドライバ内で発生しています</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_INITIALIZE">
-            <summary>FeliCaポートデバイスの初期化処理エラーです</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_TEMPERATURE_ERROR">
-            <summary>FeliCaポートデバイスが温度異常状態です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_TEMPERATURE_FATAL_ERROR">
-            <summary>FeliCaポートデバイスが温度異常状態により、使用できない状態です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_READER_WRITER_DISCONNECTED">
-            <summary>FeliCaポートデバイスが切断されました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_ERROR">
-            <summary>FeliCaポートデバイスで不明なエラーが発生しています</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.ELICA_NFC_E_REGISTRY">
-            <summary>レジストリアクセスに失敗しました</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_DIR">
-            <summary>フォルダが存在しないか不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_FILE">
-            <summary>ファイルが存在しないか不正です</summary>
-        </member>
-        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_FILE_ACCESS">
-            <summary>ファイルアクセスに失敗しました</summary>
-        </member>
-        <member name="T:com.esp.nfclib.trailer.LockByte">
+        <member name="M:com.esp.falplib.FelicaException.#ctor(System.Object)">
             <summary>
-            Mifare Ultralight LockByte
-            LockByteにより、ページ単位の書き換え禁止設定を行います。
-            書き換え禁止ページの追加はできますが、禁止設定のページを修正可能には戻せません。
+            生成
             </summary>
+            <param name="error">FelicaErrorType or FalpErrorType</param>
         </member>
-        <member name="M:com.esp.nfclib.trailer.LockByte.#ctor">
-            <summary>
-            全ページ書き換え可能状態
-            </summary>
+        <member name="P:com.esp.falplib.FelicaException.FelicaError">
+            <summary>FeliCaエラー</summary>
         </member>
-        <member name="M:com.esp.nfclib.trailer.LockByte.GetPageData">
-            <summary>
-            LockByteに対応する4Byteを取得
-            </summary>
-            <returns>Byte[4]</returns>
-        </member>
-        <member name="P:com.esp.nfclib.trailer.LockByte.Page">
-            <summary>ページ4～15の書き換え禁止設定
-            true=禁止,false=許可</summary>
-        </member>
-        <member name="P:com.esp.nfclib.trailer.LockByte.Otp">
-            <summary>OTP部(ページ3)の書き換え禁止</summary>
+        <member name="P:com.esp.falplib.FelicaException.FalpError">
+            <summary>FALPエラー</summary>
         </member>
         <member name="T:com.esp.nfclib.PcscException">
             <summary>
@@ -1777,294 +1772,158 @@
         <member name="F:com.esp.nfclib.WinSCardError.SCARD_W_CARD_NOT_AUTHENTICATED">
             <summary>SCARD_W_CARD_NOT_AUTHENTICATED</summary>
         </member>
-        <member name="M:com.esp.falplib.felica_dll.InitializeLibrary">
+        <member name="T:com.esp.nfclib.NfcLib">
+            <summary>
+            Pasori用Nfcライブラリ
+            </summary>
+        </member>
+        <member name="F:com.esp.nfclib.NfcLib.MF_BLOCK_LENGTH">
+            <summary>MifareClassicは読み込み、書き込み16Byte単位</summary>
+        </member>
+        <member name="F:com.esp.nfclib.NfcLib.MF_UL_PAGE_LENGTH">
+            <summary>Ultralightは書き込み4Byte単位、読み込みは16Byte単位</summary>
+        </member>
+        <member name="F:com.esp.nfclib.NfcLib.MF_UL_PAGE_MAX">
+            <summary>Ultralightは0～15ページ。LockByte=2,OTP=3,ユーザー領域は4～15</summary>
+        </member>
+        <member name="F:com.esp.nfclib.NfcLib.FC_BLOCK_LENGTH">
+            <summary>Felicaは読み込み、書き込み16Byte単位</summary>
+        </member>
+        <member name="F:com.esp.nfclib.NfcLib.FC_IDM_LENGTH">
+            <summary>FelicaはIDMは8Byte</summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.InitializeLibrary(com.esp.nfclib.UseCard)">
             <summary>
             ライブラリの初期化
             </summary>
-            <returns>T:正常終了 F:異常終了</returns>
         </member>
-        <member name="M:com.esp.falplib.felica_dll.OpenReaderWriterAuto">
-            <summary>
-            リーダーライターを開く
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.CloseReaderWriter">
-            <summary>
-            リーダー・ライターの解放
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.DisposeLibrary">
+        <member name="M:com.esp.nfclib.NfcLib.DisposeLibrary">
             <summary>
             ライブラリの解放
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.TransactionLock">
-            <summary>
-            R/Wを専有する
+            (DisposeLibraryを実行した場合、次の利用では再びInitializeLibraryを実行する)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:com.esp.falplib.felica_dll.TransactionUnlock">
+        <member name="M:com.esp.nfclib.NfcLib.Polling(System.UInt16)">
             <summary>
-            R/Wを専有する
+            ポーリング
             </summary>
-            <returns></returns>
+            <returns>カード情報,NULL=未検出</returns>
         </member>
-        <member name="M:com.esp.falplib.felica_dll.PollingAndGetCardInformation(StructurePolling@,System.Byte@,StructureCardInformation@)">
+        <member name="M:com.esp.nfclib.NfcLib.Polling">
             <summary>
-            Pollingを実行する
+            ポーリング(Mifare)
             </summary>
-            <param name="polling"></param>
-            <param name="numOfCard"></param>
-            <param name="cardInformation"></param>
-            <returns></returns>
+            <returns>カード情報,NULL=未検出</returns>
         </member>
-        <member name="M:com.esp.falplib.felica_dll.WriteBlockWithoutEncryption(InputStructureWriteBlockWithoutEncryption@,OutputStructureWriteBlockWithoutEncryption@)">
+        <member name="M:com.esp.nfclib.NfcLib.StopAccess">
+            <summary>
+            カードのアクセス権を解放する
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.Authentication(System.Boolean,System.Byte,System.Byte[])">
+            <summary>
+            Mifare Authentication A/B
+            </summary>
+            <param name="useA">'A'/'B'</param>
+            <param name="block">アクセス対象ブロック番号</param>
+            <param name="key">認証鍵[6Byte]</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.TryAuthentication(System.Boolean,System.Byte[],System.Byte)">
+            <summary>
+            Mifare Authentication A/B
+            </summary>
+            <param name="useA">'A'/'B'</param>
+            <param name="key">認証鍵[6Byte]</param>
+            <param name="block">アクセス対象ブロック番号</param>
+            <returns>T:成功,F:失敗</returns>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.ReadBlockData(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            Mifare指定ブロックの読み込み
+            Classic:16Byte,UL:4Byte
+            </summary>
+            <param name="blockOrPage">ブロック番号、ページ番号</param>
+            <param name="buffer">バッファ</param>
+            <param name="offset">バッファ内の保存開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.WriteBlockData(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            Mifare指定ブロック(16Byte)の書き込み
+            </summary>
+            <param name="block">ブロック番号</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内のデータ開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.WritePageData(System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            Mifare UL 指定ページ(4Byte)の書き込み
+            </summary>
+            <param name="page">ページ番号</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内のデータ開始位置</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.ReadBlockData(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
+            <summary>
+            FeliCa指定ブロックの読み込み
+            Classic:16Byte,UL:4Byte
+            </summary>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLib.WriteBlockData(System.UInt16,System.Int32[],System.Byte[],System.Int32)">
+            <summary>
+            FeliCa指定ブロックの書き込み
+            </summary>
+            <param name="svCode">サービスコード</param>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">データバッファ</param>
+            <param name="offset">バッファ内のデータ開始位置</param>
+        </member>
+        <member name="P:com.esp.nfclib.NfcLib.Connection">
+            <summary>接続モード</summary>
+        </member>
+        <member name="T:com.esp.falplib.FelicaHelper">
+            <summary>
+            FeliCaAPI呼び出しクラス
+            </summary>
+        </member>
+        <member name="M:com.esp.falplib.FelicaHelper.ReadIdm(System.UInt16,System.Byte[])">
+            <summary>
+            Idmの読み出し
+            </summary>
+            <param name="sysCode">システムコード</param>
+            <param name="idm">Idm(idm)</param>
+            <returns>成功？</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaHelper.ConnectFalp(System.Byte[],System.Byte[])">
+            <summary>
+            FalpConnet処理
+            </summary>
+            <param name="appId">APP_ID</param>
+            <param name="buffer">接続後、最初に送るデータ</param>
+            <returns>T:OK,F:NG</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaHelper.SendFalp(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            FALPでのデータ送信
+            </summary>
+            <param name="buffer">データ</param>
+            <param name="offset">位置</param>
+            <param name="length">長さ</param>
+            <returns>T:OK,F:NG</returns>
+        </member>
+        <member name="M:com.esp.falplib.FelicaHelper.WriteBlockData(System.Int32,System.Byte[],System.Int32[],System.Byte[],System.Int32,System.Int32)">
             <summary>
             鍵無し領域への書込み
             </summary>
-            <param name="udtInputWriteBlockWithoutEncryption"></param>
-            <param name="udtOutputWriteBlockWithoutEncryption"></param>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.ReadBlockWithoutEncryption(InputStructureReadBlockWithoutEncryption@,OutputStructureReadBlockWithoutEncryption@)">
-            <summary>
-            鍵無し領域からの読込み
-            </summary>
-            <param name="udtInputReadBlockWithoutEncryption"></param>
-            <param name="udtOutputReadBlockWithoutEncryption"></param>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.FalpOpen">
-            <summary>
-            FALP Initiatorを開始する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.FalpClose">
-            <summary>
-            FALP Initiatorを終了する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.FalpConnect(System.UInt16,System.UInt16,System.Byte[],System.Byte,System.Byte[],System.UInt32@)">
-            <summary>
-            Targetに接続する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.FalpShutdown">
-            <summary>
-            Targetから切断する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.FalpSend(System.Byte[],System.UInt32@)">
-            <summary>
-            データを送信する
-            </summary>
-            <param name="data">データ</param>
-            <param name="buffered">データ長、成功時はバッファされたデータ長が格納される</param>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.felica_dll.FalpRecv(System.Byte[],System.UInt32@)">
-            <summary>
-            データを送信する
-            </summary>
-            <param name="data">データ</param>
-            <param name="buffered">データ長、成功時はバッファされたデータ長が格納される</param>
-            <returns></returns>
-        </member>
-        <member name="F:InputStructureWriteBlockWithoutEncryption.CardIdm">
-            <summary>
-            Byte型へのポインタ(8byte) Idm
-            </summary>
-        </member>
-        <member name="F:InputStructureWriteBlockWithoutEncryption.NumberOfServices">
-            <summary>
-            サービス数 m(1～m～16)
-            </summary>
-        </member>
-        <member name="F:InputStructureWriteBlockWithoutEncryption.ServiceCodeList">
-            <summary>
-            Byte型へのポインタ(m*2byte、m*4byte)　サービスコードリスト 
-            </summary>
-        </member>
-        <member name="F:InputStructureWriteBlockWithoutEncryption.NumberOfBlocks">
-            <summary>
-            ブロック数 n(1～n～255)
-            </summary>
-        </member>
-        <member name="F:InputStructureWriteBlockWithoutEncryption.BlockList">
-            <summary>
-            Byte型へのポインタ(n*2byte～n*3byte)　ブロック位置リスト
-            </summary>
-        </member>
-        <member name="F:InputStructureWriteBlockWithoutEncryption.BlockData">
-            <summary>
-            Byte型へのポインタ(n*16byte) ブロックデータ領域リスト
-            </summary>
-        </member>
-        <member name="F:OutputStructureWriteBlockWithoutEncryption.StatusFlag1">
-            <summary>
-            byte型へのポインタ 0=OK,それ以外=NG;
-            </summary>
-        </member>
-        <member name="F:OutputStructureWriteBlockWithoutEncryption.StatusFlag2">
-            <summary>
-            byte型へのポインタ 0=OK,それ以外=NG;
-            </summary>
-        </member>
-        <member name="F:InputStructureReadBlockWithoutEncryption.CardIdm">
-            <summary>
-            byte型へのポインタ(8byte) Idm
-            </summary>
-        </member>
-        <member name="F:InputStructureReadBlockWithoutEncryption.NumberOfServices">
-            <summary>
-            サービス数 m(1～m～16)
-            </summary>
-        </member>
-        <member name="F:InputStructureReadBlockWithoutEncryption.ServiceCodeList">
-            <summary>
-            Byte型へのポインタ(m*2byte、m*4byte)　サービスコードリスト 
-            </summary>
-        </member>
-        <member name="F:InputStructureReadBlockWithoutEncryption.NumberOfBlocks">
-            <summary>
-            ブロック数n n(1～n～255)
-            </summary>
-        </member>
-        <member name="F:InputStructureReadBlockWithoutEncryption.BlockList">
-            <summary>
-            Byte型へのポインタ(n*2byte～n*3byte)　ブロック位置リスト
-            </summary>
-        </member>
-        <member name="F:OutputStructureReadBlockWithoutEncryption.StatusFlag1">
-            <summary>
-            Byte型(1byte)へのポインタ 0=OK,それ以外=NG;
-            </summary>
-        </member>
-        <member name="F:OutputStructureReadBlockWithoutEncryption.StatusFlag2">
-            <summary>
-            Byte型(1byte)へのポインタ 0=OK,それ以外=NG;
-            </summary>
-        </member>
-        <member name="F:OutputStructureReadBlockWithoutEncryption.ResultNumberOfBlocks">
-            <summary>
-            Byte型(1byte)へのポインタ ブロック数n
-            </summary>
-        </member>
-        <member name="F:OutputStructureReadBlockWithoutEncryption.BlockData">
-            <summary>
-            Byte型(n*16byte) 読み取ったブロックデータ
-            </summary>
-        </member>
-        <member name="T:com.esp.falplib.FelicaNetHelper">
-            <summary>
-            FALPライブラリ C#ラッパー
-            </summary>
-        </member>
-        <member name="F:com.esp.falplib.FelicaNetHelper.BLOCK_LENGTH">
-            <summary>ブロックのバイト数</summary>
-        </member>
-        <member name="F:com.esp.falplib.FelicaNetHelper.IDM_LENGTH">
-            <summary>IDMのバイト数</summary>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.#ctor">
-            <summary>
-            完全Staticクラス
-            </summary>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.InitializeLibrary">
-            <summary>
-            ライブラリの初期化
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.OpenReaderWriterAuto">
-            <summary>
-            リーダーライターを開く
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.CloseReaderWriter">
-            <summary>
-            リーダー・ライターの解放
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.DisposeLibrary">
-            <summary>
-            ライブラリの解放
-            </summary>
-            <returns>T:正常終了 F:異常終了</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.TransactionLock">
-            <summary>
-            R/Wを専有する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.TransactionUnlock">
-            <summary>
-            R/Wを専有する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.FalpOpen">
-            <summary>
-            FALP Initiatorを開始する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.FalpClose">
-            <summary>
-            FALP Initiatorを終了する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.ConnectFalp(System.Byte[],System.UInt16,System.UInt16,System.Byte[])">
-            <summary>
-            Targetに接続する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.FalpShutdown">
-            <summary>
-            Targetから切断する
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.SendByFalp(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            データを送信する
-            </summary>
-            <param name="data">データ</param>
-            <param name="offset">バッファ内の位置</param>
-            <param name="length">データの長さ</param>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.RecvByFalp(System.Byte[],System.Int32,System.UInt16)">
-            <summary>
-            FALPによるデータの受信
-            </summary>
-            <param name="buffer">受信データ格納先</param>
-            <param name="offset">位置</param>
-            <param name="timeout">タイムアウト時間[ms]</param>
-            <returns>受信したデータの長さ</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.Polling(System.UInt16,System.Byte[])">
-            <summary>
-            Pollingの実行
-            </summary>
-            <param name="sysCode">システムコード</param>
+            <param name="svCode">サービスコード</param>
             <param name="idm">Idm</param>
-            <returns>T:捕捉, F:捕捉なし</returns>
+            <param name="block">ブロックリスト</param>
+            <param name="buffer">書込みデータ</param>
+            <param name="offset">データ開始位置</param>
+            <param name="length">データ長さ</param>
+            <returns>T:成功 F:失敗</returns>
         </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.ReadBlockData(System.UInt16,System.Byte[],System.Int32[],System.Byte[],System.Int32)">
+        <member name="M:com.esp.falplib.FelicaHelper.ReadBlockData(System.Int32,System.Byte[],System.Int32[],System.Byte[],System.Int32,System.Int32@)">
             <summary>
             鍵無し領域からの読み出し
             </summary>
@@ -2072,24 +1931,261 @@
             <param name="idm">Idm</param>
             <param name="block">ブロックリスト</param>
             <param name="buffer">取得データバッファ</param>
-            <param name="offset">保存開始位置</param>
+            <param name="offset">データ開始位置</param>
+            <param name="readCount">読み取った長さ</param>
+            <returns>T:成功 F:失敗</returns>
         </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.WriteBlockData(System.UInt16,System.Byte[],System.Int32[],System.Byte[],System.Int32,System.Int32)">
+        <member name="M:com.esp.falplib.FelicaHelper.makeBlockList(System.Int32[])">
             <summary>
-            鍵無し領域への書込み
+            ブロックリスト配列の生成
             </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="idm">Idm</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">書込みデータバッファ</param>
-            <param name="offset">バッファ内のデータ開始位置</param>
-            <param name="length">データの長さ</param>
+            <param name="block">ブロック番号リスト</param>
+            <returns></returns>
         </member>
-        <member name="M:com.esp.falplib.FelicaNetHelper.RaiseException(System.Type)">
+        <member name="T:com.esp.nfclib.NfcLibException">
             <summary>
-            FelicaExceptionをthrowする
+            Pasoriエラー
             </summary>
-            <param name="type">FelicaErorrTyper</param>
+        </member>
+        <member name="M:com.esp.nfclib.NfcLibException.#ctor(com.esp.nfclib.ApiErrorKind,System.UInt32)">
+            <summary>
+            Pasoriエラー
+            </summary>
+            <param name="apiError">APIエラーコード</param>
+            <param name="driverError">ドライバエラーコード</param>
+        </member>
+        <member name="P:com.esp.nfclib.NfcLibException.ApiError">
+            <summary>Pasori APIエラーコード</summary>
+        </member>
+        <member name="P:com.esp.nfclib.NfcLibException.DriverError">
+            <summary>Pasori ドライバエラーコード</summary>
+        </member>
+        <member name="P:com.esp.nfclib.NfcLibException.Message">
+            <summary>
+            エラー内容
+            </summary>
+        </member>
+        <member name="T:com.esp.nfclib.ApiErrorKind">
+            <summary>
+            Pasoriエラー定義
+            </summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.APP_UNKNOWN">
+            <summary>未定義</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.APP_INITIALIZE_FALED">
+            <summary>Initializeに失敗</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.APP_MF_AUTH_FALED">
+            <summary>Autenticationに失敗</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.APP_MF_NOT_DETECTED">
+            <summary>カード未検出</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.APP_MF_NOT_RELEASE">
+            <summary>カード未解放</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.APP_INVALID_ACCESS_CONDITION">
+            <summary>セクタトレーラーが不正</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_DRIVER_ERROR">
+            <summary>ドライバでエラーが発生しました※1</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INVALID_ARGUMENT">
+            <summary>プラグインへの引数が異常です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INITIALIZE_DRIVER">
+            <summary>ドライバの初期化に失敗しました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_MEMORY_ALLOCATE">
+            <summary>メモリが確保できません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INVALID_PORT_NAME">
+            <summary>ポート名が不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_NOT_PORT_OPENED">
+            <summary>ポートがオープンされていません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_OPENED">
+            <summary>すでにポートがオープンされています</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFCP_E_INVALID_RESPONSE">
+            <summary>ドライバからのレスポンスデータが不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_ARGUMENT">
+            <summary>引数が異常です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_IMPLEMENT">
+            <summary>実装されていません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_MODE">
+            <summary>FeliCaライブラリが動作中です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_MEMORY_ALLOCATE">
+            <summary>メモリが確保できません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_INITIALIZE">
+            <summary>ライブラリが初期化されていません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PORT_LIST">
+            <summary>ポートリスト名が不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PORT_NAME">
+            <summary>ポート名が不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PLUGINS_DIR">
+            <summary>プラグインディレクトリが不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PLUGIN_NAME">
+            <summary>プラグインファイル名が不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_PLUGIN">
+            <summary>プラグインファイルが不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NO_PLUGIN">
+            <summary>プラグインファイルが存在しません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_CREATE_THREAD">
+            <summary>スレッドが生成できません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_PORT_OPENED">
+            <summary>ポートがオープンされていません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NO_CALLBACK_PARAM">
+            <summary>コールバックパラメータが設定されていません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_NOT_CREATE_MESSAGE">
+            <summary>コールバック用メッセージが生成できません</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TIME_OUT">
+            <summary>NFCアクセスライブラリでタイムアウトが発生しました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_CALLBACK">
+            <summary>コールバック呼び出しに失敗しました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_ALREADY_INITIALIZED">
+            <summary>ライブラリはすでに初期化されています</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_PORT_OPENED">
+            <summary>すでにポートがオープンされています</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_DRIVER_STATUS">
+            <summary>ドライバステータスが不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_TARGET_DEVICE_TYPE">
+            <summary>捕捉したターゲットデバイスタイプが不明です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_FORBIDDEN_OPERARION">
+            <summary>同期非同期排他エラーが発生しました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE_NOT_FOUND">
+            <summary>捕捉デバイスが見つかりませんでした</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE_TIMEOUT">
+            <summary>捕捉デバイス使用開始要求が時間内にありませんでした</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE_ACCESS">
+            <summary>ターゲットデバイスアクセスでのエラーがドライバより通知されました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_TARGET_DEVICE">
+            <summary>ターゲットデバイスアクセスでの不明エラーがドライバより通知されました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_MODE">
+            <summary>モード移行エラーがドライバ内で発生しています</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_INITIALIZE">
+            <summary>FeliCaポートデバイスの初期化処理エラーです</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_TEMPERATURE_ERROR">
+            <summary>FeliCaポートデバイスが温度異常状態です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_TEMPERATURE_FATAL_ERROR">
+            <summary>FeliCaポートデバイスが温度異常状態により、使用できない状態です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_READER_WRITER_DISCONNECTED">
+            <summary>FeliCaポートデバイスが切断されました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_RW_DEVICE_ERROR">
+            <summary>FeliCaポートデバイスで不明なエラーが発生しています</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.ELICA_NFC_E_REGISTRY">
+            <summary>レジストリアクセスに失敗しました</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_DIR">
+            <summary>フォルダが存在しないか不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_INVALID_FILE">
+            <summary>ファイルが存在しないか不正です</summary>
+        </member>
+        <member name="F:com.esp.nfclib.ApiErrorKind.FELICA_NFC_E_FILE_ACCESS">
+            <summary>ファイルアクセスに失敗しました</summary>
+        </member>
+        <member name="T:com.esp.common.Utility">
+            <summary>
+            Utilityクラス
+            </summary>
+        </member>
+        <member name="M:com.esp.common.Utility.#ctor">
+            <summary>
+            Utilityクラス
+            </summary>
+        </member>
+        <member name="M:com.esp.common.Utility.ByteToHex(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Byte[]からHex文字列へ
+            </summary>
+            <param name="buffer">バッファ</param>
+            <param name="offset">開始位置</param>
+            <param name="length">長さ</param>
+            <returns>00 01... FF形式の文字列</returns>
+        </member>
+        <member name="M:com.esp.common.Utility.HexToByte(System.String)">
+            <summary>
+            Hex文字列からByte[]へ
+            </summary>
+            <param name="hex">00 01...FF形式の文字列</param>
+            <returns>Byte[]</returns>
+        </member>
+        <member name="T:com.esp.common.BigEndian">
+            <summary>
+            ビッグエンディアン操作用各種
+            </summary>
+        </member>
+        <member name="M:com.esp.common.BigEndian.#ctor">
+            <summary>
+            Utilityクラス
+            </summary>
+        </member>
+        <member name="M:com.esp.common.BigEndian.UIntergerToBytes(System.Object)">
+            <summary>
+            符号なし整数を、ビッグエンディアンで、配列に格納する
+            </summary>
+            <param name="integer">ulong, uint, ushort, byte</param>
+            <returns>ビッグエンディアンで格納されたbyte[]</returns>
+        </member>
+        <member name="M:com.esp.common.BigEndian.SetUIntToBytes(System.Object,System.Byte[],System.Int32)">
+            <summary>
+            intをbyte配列に展開(下位2byteのみ ビッグエンディアン)
+            </summary>
+            <param name="integer">ulong, uint, ushort, byte</param>
+            <param name="buffer">バッファ</param>
+            <param name="offset">位置</param>
+        </member>
+        <member name="M:com.esp.common.BigEndian.BytesToUInteger(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            ビッグエンディアンで格納された配列から、符号なし整数を取得
+            </summary>
+            <param name="buffer">配列</param>
+            <param name="offset">位置</param>
+            <param name="length">長さ</param>
+            <returns>ulong, uint, ushort, byte</returns>
+        </member>
+        <member name="M:com.esp.common.BigEndian.SwapEndian(System.Object)">
+            <summary>
+            エンディアンを入れ替える
+            </summary>
+            <param name="uinteger">ulong,uint,ushort</param>
+            <returns>エンディアンを入れ替えたulong,uint,ushort</returns>
         </member>
         <member name="T:com.esp.nfclib.PcscReader">
             <summary>
@@ -2212,138 +2308,61 @@
             <param name="buffer">データバッファ</param>
             <param name="offset">バッファ内のデータ開始位置</param>
         </member>
-        <member name="T:DEVICE_DATA_NFC_14443A_18092_106K">
+        <member name="T:com.esp.nfclib.MfCmdCode">
             <summary>
-            ISO 14443A情報
+            Mifareコマンドコード
             </summary>
         </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.target_number">
-            <summary>アクセス識別子</summary>
+        <member name="F:com.esp.nfclib.MfCmdCode.CMD_READ">
+            <summary>READ</summary>
         </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.sens_res">
-            <summary>ATQA</summary>
+        <member name="F:com.esp.nfclib.MfCmdCode.CMD_WRITE">
+            <summary>1K,4K Write</summary>
         </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.sel_res">
-            <summary>SAK</summary>
+        <member name="F:com.esp.nfclib.MfCmdCode.CMD_UL_WRITE">
+            <summary>UL Write</summary>
         </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.NFCID1_size">
-            <summary>UIDサイズ</summary>
+        <member name="F:com.esp.nfclib.MfCmdCode.CMD_AUTH_A">
+            <summary>Auth by KyeA</summary>
         </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.NFCID1">
-            <summary>UID</summary>
+        <member name="F:com.esp.nfclib.MfCmdCode.CMD_AUTH_B">
+            <summary>Auth by KyeB</summary>
         </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.ATS_size">
-            <summary>ATSサイズ 1443A-4以外はで0固定 ATAは1バイト</summary>
-        </member>
-        <member name="F:DEVICE_DATA_NFC_14443A_18092_106K.ATS">
-            <summary>ATS</summary>
-        </member>
-        <member name="T:DEVICE_INFO">
+        <member name="T:com.esp.nfclib.MfConst">
             <summary>
-            ウインドウメッセージで受け取るカード情報
+            Mifare定数
             </summary>
         </member>
-        <member name="T:com.esp.falplib.FelicaHelper">
+        <member name="T:com.esp.nfclib.UseCard">
             <summary>
-            FeliCaAPI呼び出しクラス
+            使用するカード
             </summary>
         </member>
-        <member name="M:com.esp.falplib.FelicaHelper.ReadIdm(System.UInt16,System.Byte[])">
-            <summary>
-            Idmの読み出し
-            </summary>
-            <param name="sysCode">システムコード</param>
-            <param name="idm">Idm(idm)</param>
-            <returns>成功？</returns>
+        <member name="F:com.esp.nfclib.UseCard.None">
+            <summary>なし</summary>
         </member>
-        <member name="M:com.esp.falplib.FelicaHelper.ConnectFalp(System.Byte[],System.Byte[])">
-            <summary>
-            FalpConnet処理
-            </summary>
-            <param name="appId">APP_ID</param>
-            <param name="buffer">接続後、最初に送るデータ</param>
-            <returns>T:OK,F:NG</returns>
+        <member name="F:com.esp.nfclib.UseCard.Felica">
+            <summary>Felicaのみ</summary>
         </member>
-        <member name="M:com.esp.falplib.FelicaHelper.SendFalp(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            FALPでのデータ送信
-            </summary>
-            <param name="buffer">データ</param>
-            <param name="offset">位置</param>
-            <param name="length">長さ</param>
-            <returns>T:OK,F:NG</returns>
+        <member name="F:com.esp.nfclib.UseCard.Mifare">
+            <summary>Mifareのみ</summary>
         </member>
-        <member name="M:com.esp.falplib.FelicaHelper.WriteBlockData(System.Int32,System.Byte[],System.Int32[],System.Byte[],System.Int32,System.Int32)">
+        <member name="T:com.esp.nfclib.ConnetKind">
             <summary>
-            鍵無し領域への書込み
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="idm">Idm</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">書込みデータ</param>
-            <param name="offset">データ開始位置</param>
-            <param name="length">データ長さ</param>
-            <returns>T:成功 F:失敗</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaHelper.ReadBlockData(System.Int32,System.Byte[],System.Int32[],System.Byte[],System.Int32,System.Int32@)">
-            <summary>
-            鍵無し領域からの読み出し
-            </summary>
-            <param name="svCode">サービスコード</param>
-            <param name="idm">Idm</param>
-            <param name="block">ブロックリスト</param>
-            <param name="buffer">取得データバッファ</param>
-            <param name="offset">データ開始位置</param>
-            <param name="readCount">読み取った長さ</param>
-            <returns>T:成功 F:失敗</returns>
-        </member>
-        <member name="M:com.esp.falplib.FelicaHelper.makeBlockList(System.Int32[])">
-            <summary>
-            ブロックリスト配列の生成
-            </summary>
-            <param name="block">ブロック番号リスト</param>
-            <returns></returns>
-        </member>
-        <member name="T:com.esp.common.BigEndian">
-            <summary>
-            ビッグエンディアン操作用各種
+            接続モード
             </summary>
         </member>
-        <member name="M:com.esp.common.BigEndian.#ctor">
-            <summary>
-            Utilityクラス
-            </summary>
+        <member name="F:com.esp.nfclib.ConnetKind.None">
+            <summary>未接続</summary>
         </member>
-        <member name="M:com.esp.common.BigEndian.UIntergerToBytes(System.Object)">
-            <summary>
-            符号なし整数を、ビッグエンディアンで、配列に格納する
-            </summary>
-            <param name="integer">ulong, uint, ushort, byte</param>
-            <returns>ビッグエンディアンで格納されたbyte[]</returns>
+        <member name="F:com.esp.nfclib.ConnetKind.Felica">
+            <summary>Felica API</summary>
         </member>
-        <member name="M:com.esp.common.BigEndian.SetUIntToBytes(System.Object,System.Byte[],System.Int32)">
-            <summary>
-            intをbyte配列に展開(下位2byteのみ ビッグエンディアン)
-            </summary>
-            <param name="integer">ulong, uint, ushort, byte</param>
-            <param name="buffer">バッファ</param>
-            <param name="offset">位置</param>
+        <member name="F:com.esp.nfclib.ConnetKind.Nfc">
+            <summary>Nfc API</summary>
         </member>
-        <member name="M:com.esp.common.BigEndian.BytesToUInteger(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            ビッグエンディアンで格納された配列から、符号なし整数を取得
-            </summary>
-            <param name="buffer">配列</param>
-            <param name="offset">位置</param>
-            <param name="length">長さ</param>
-            <returns>ulong, uint, ushort, byte</returns>
-        </member>
-        <member name="M:com.esp.common.BigEndian.SwapEndian(System.Object)">
-            <summary>
-            エンディアンを入れ替える
-            </summary>
-            <param name="uinteger">ulong,uint,ushort</param>
-            <returns>エンディアンを入れ替えたulong,uint,ushort</returns>
+        <member name="F:com.esp.nfclib.ConnetKind.Pcsc">
+            <summary>PC/SC API</summary>
         </member>
     </members>
 </doc>
