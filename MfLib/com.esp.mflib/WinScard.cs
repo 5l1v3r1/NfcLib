@@ -71,7 +71,7 @@ namespace com.esp.nfclib
         private static extern uint SCardListReaders(
           IntPtr hContext,
           String mszGroups,
-          StringBuilder mszReaders,
+          byte[] mszReaders,
           ref uint pcchReaders
         );
 
@@ -108,7 +108,7 @@ namespace com.esp.nfclib
         [DllImport(dll_name)]
         private static extern int SCardStatus(
           IntPtr hCard,
-          StringBuilder szReaderName,
+          byte[] szReaderName,
           ref uint pcchReaderLen,
           ref uint pdwState,
           ref uint pdwProtocol,
@@ -139,12 +139,17 @@ namespace com.esp.nfclib
             if (lastError != WinSCardError.SCARD_S_SUCCESS)
                 return null;
 
-            StringBuilder sb = new StringBuilder((int)len);
-            lastError = (WinSCardError)SCardListReaders(rwContext, null, sb, ref len);
-            if (lastError != WinSCardError.SCARD_S_SUCCESS)
-                return null;
+            byte[] buffer = new byte[len];
+            lastError = (WinSCardError)SCardListReaders(rwContext, null, buffer, ref len);
+            string readers = Encoding.ASCII.GetString(buffer, 0, (int)len);
+            string[] names = readers.Split(new Char[] { '\0' });
 
-            return sb.ToString();
+            foreach(string name in names)
+            {
+                if (name.IndexOf("PaSoRi", StringComparison.OrdinalIgnoreCase) >= 0)
+                    return name;
+            }
+                return null;
         }
 
         /// <summary>
@@ -192,30 +197,26 @@ namespace com.esp.nfclib
         /// ATR取得用
         /// </summary>
         /// <param name="card">カードコンテキスト</param>
-        /// <param name="reader">[OUT]リーダー名</param>
         /// <param name="state">[OUT]リーダー状態</param>
         /// <param name="protocol">[OUT]プロトコル</param>
         /// <param name="atr">[OUT]</param>
         /// <returns></returns>
-        public static bool GetStatus(IntPtr card, out string reader, out uint state, out uint protocol, out byte[] atr)
+        public static bool GetStatus(IntPtr card, out uint state, out uint protocol, out byte[] atr)
         {
             uint readerLen=0, atrLen=0;
             state = 0;
             protocol = 0;
-            reader = null;
             atr = null;
 
             lastError = (WinSCardError)SCardStatus(card, null, ref readerLen, ref state, ref protocol, null, ref atrLen);
             if (lastError != WinSCardError.SCARD_S_SUCCESS)
                 return false;
 
-            StringBuilder sb = new StringBuilder((int)readerLen);
+            byte[] buffer = new byte[(int)readerLen];
             atr = new byte[atrLen];
-            lastError = (WinSCardError)SCardStatus(card, sb, ref readerLen, ref state, ref protocol, atr, ref atrLen);
+            lastError = (WinSCardError)SCardStatus(card, buffer, ref readerLen, ref state, ref protocol, atr, ref atrLen);
             if (lastError != WinSCardError.SCARD_S_SUCCESS)
                 return false;
-
-            reader = sb.ToString();
             return true;
         }
 
