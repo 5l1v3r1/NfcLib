@@ -204,7 +204,7 @@ namespace com.esp.nfclib
         {
             uint status;
             byte[] atr;
-            if (!WinSCard.GetStatus(cardContext, out readerName, out status, out protocol, out atr))
+            if (!WinSCard.GetStatus(cardContext, out status, out protocol, out atr))
                 return null;
 
             int index = 0;
